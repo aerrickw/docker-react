@@ -8,4 +8,15 @@ before_install:
 script:
   - docker run -e CI=true aerrick/docker-react npm run test
 
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "docker"
+  env: "Docker-env"
+  bucket_name: elasticbeanstalk-us-west-2-703861148810
+  bucket_path: "docker"
+  on: 
+    branch: master
+
+
 language: generic 
